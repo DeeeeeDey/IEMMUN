@@ -23,7 +23,7 @@ export default function Home() {
   const featuredCommittees = committees.slice(0, 3);
 
   return (
-    <div className="bg-black w-full min-h-screen">
+    <div className="bg-transparent w-full min-h-screen">
       {/* Immersive Hero Slider */}
       <HeroSlider />
 

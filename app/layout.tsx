@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import InteractiveMeshBackground from "@/components/InteractiveMeshBackground";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -55,7 +56,8 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${cormorantGaramond.variable} ${geistMono.variable} h-full antialiased dark`}
     >
-      <body className="min-h-full flex flex-col bg-black text-white selection:bg-accent selection:text-white font-sans">
+      <body className="min-h-full flex flex-col bg-black text-white selection:bg-accent selection:text-white font-sans isolate">
+        <InteractiveMeshBackground />
         <Navbar />
         <main className="flex-grow flex flex-col">
           {children}

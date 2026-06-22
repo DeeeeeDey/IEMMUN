@@ -27,7 +27,7 @@ export default async function CommitteeDetailPage({ params }: PageProps) {
   }
 
   return (
-    <div className="bg-black w-full min-h-screen">
+    <div className="bg-transparent w-full min-h-screen">
       {/* Immersive Visual Header */}
       <section className="relative w-full min-h-[40vh] flex items-end bg-gradient-to-b from-neutral-950 via-neutral-900 to-black border-b border-neutral-900 pt-32 pb-12">
         {/* Grid Background */}

@@ -119,7 +119,7 @@ export const HeroSlider: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-[95vh] md:h-[100vh] bg-black overflow-hidden flex flex-col justify-between">
+    <section className="relative w-full h-[95vh] md:h-[100vh] bg-transparent overflow-hidden flex flex-col justify-between">
       {/* Background Images Layer */}
       <div className="absolute inset-0 z-0">
         <AnimatePresence mode="wait">

@@ -3,7 +3,7 @@ import ComingSoon from "@/components/ui/ComingSoon";
 
 export default function CollaboratorsPage() {
   return (
-    <div className="bg-black w-full min-h-screen pt-16">
+    <div className="bg-transparent w-full min-h-screen pt-16">
       <ComingSoon
         title="Collaborators & Sponsors"
         subtitle="Global Alliances"

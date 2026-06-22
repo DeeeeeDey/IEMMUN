@@ -4,7 +4,7 @@ import { Mail, Phone, MapPin, Instagram, Facebook, Linkedin, Twitter, ArrowUpRig
 
 export default function ContactPage() {
   return (
-    <div className="bg-black w-full min-h-screen pt-24 md:pt-32">
+    <div className="bg-transparent w-full min-h-screen pt-24 md:pt-32">
       {/* Page Header */}
       <section className="max-w-7xl mx-auto px-6 mb-16 md:mb-20">
         <div className="max-w-3xl flex flex-col gap-6">

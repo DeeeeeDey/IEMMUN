@@ -3,7 +3,7 @@ import ComingSoon from "@/components/ui/ComingSoon";
 
 export default function SecretariatPage() {
   return (
-    <div className="bg-black w-full min-h-screen pt-16">
+    <div className="bg-transparent w-full min-h-screen pt-16">
       <ComingSoon
         title="The Secretariat"
         subtitle="Organizing Team"

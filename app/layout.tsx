@@ -47,6 +47,8 @@ export const metadata: Metadata = {
   }
 };
 
+import { ThemeProvider } from "@/components/ThemeProvider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -55,16 +57,24 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${cormorantGaramond.variable} ${geistMono.variable} h-full antialiased dark`}
+      className={`${inter.variable} ${cormorantGaramond.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-black text-white selection:bg-accent selection:text-white font-sans isolate">
-        <InteractiveMeshBackground />
-        <Preloader />
-        <Navbar />
-        <main className="flex-grow flex flex-col">
-          {children}
-        </main>
-        <Footer />
+      <body className="min-h-full flex flex-col font-sans isolate">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          forcedTheme="dark"
+          disableTransitionOnChange
+        >
+          <InteractiveMeshBackground />
+          <Preloader />
+          <Navbar />
+          <main className="flex-grow flex flex-col">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

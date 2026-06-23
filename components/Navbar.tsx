@@ -5,9 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-
-interface NavItem {
+import { motion, AnimatePresence } from "framer-motion";interface NavItem {
   label: string;
   href: string;
 }
@@ -54,14 +52,14 @@ export const Navbar: React.FC = () => {
         }`}
       >
         <header
-          className={`w-full max-w-6xl transition-all duration-500 rounded-full border border-white/[0.08] backdrop-blur-xl flex items-center justify-between px-6 md:px-8 relative ${
+          className={`w-full max-w-6xl transition-all duration-500 rounded-full border border-foreground/[0.08] backdrop-blur-xl flex items-center justify-between px-6 md:px-8 relative ${
             isScrolled
-              ? "bg-neutral-950/85 py-2.5 shadow-[0_12px_40px_-10px_rgba(0,0,0,0.8)]"
-              : "bg-neutral-950/60 py-3.5 shadow-none"
+              ? "bg-background/85 py-2.5 shadow-[0_12px_40px_-10px_rgba(0,0,0,0.1)] dark:shadow-[0_12px_40px_-10px_rgba(0,0,0,0.8)]"
+              : "bg-background/60 py-3.5 shadow-none"
           }`}
         >
           {/* Subtle top edge glass sheen glow */}
-          <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none" />
+          <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-foreground/15 to-transparent pointer-events-none" />
 
           {/* Left: Logo with iemmun-logo.png */}
           <div className="flex-1 flex items-center justify-start">
@@ -77,10 +75,10 @@ export const Navbar: React.FC = () => {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="text-[13px] font-bold tracking-[0.2em] text-white leading-none">
-                  IEM<span className="text-accent transition-colors group-hover:text-white">MUN</span>
+                <span className="text-[13px] font-bold tracking-[0.2em] text-foreground leading-none">
+                  IEM<span className="text-accent transition-colors">MUN</span>
                 </span>
-                <span className="text-[9px] font-semibold tracking-[0.25em] text-neutral-400 mt-1 leading-none">
+                <span className="text-[9px] font-semibold tracking-[0.25em] text-foreground/60 mt-1 leading-none">
                   2026
                 </span>
               </div>
@@ -100,7 +98,7 @@ export const Navbar: React.FC = () => {
                   key={item.href}
                   href={item.href}
                   className={`relative text-[10px] uppercase tracking-[0.16em] font-semibold transition-all py-2 px-3.5 rounded-full ${
-                    isActive ? "text-white" : "text-neutral-400 hover:text-white hover:bg-white/[0.03]"
+                    isActive ? "text-foreground" : "text-foreground/60 hover:text-foreground hover:bg-foreground/[0.03]"
                   }`}
                 >
                   <span className="relative z-10">{item.label}</span>
@@ -117,12 +115,12 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* Right: CTA & Mobile Menu Toggle (takes flex-1 to push nav to center) */}
-          <div className="flex-1 flex items-center justify-end gap-4">
+          <div className="flex-1 flex items-center justify-end gap-3 md:gap-4">
             {/* Action CTA Button */}
             <div className="hidden lg:block">
               <Link
                 href="/committees"
-                className="text-[10px] font-semibold tracking-wider uppercase bg-white text-black border border-white px-5 py-2 rounded-full hover:bg-transparent hover:text-white transition-all duration-300 shadow-[0_4px_12px_rgba(255,255,255,0.15)] hover:shadow-none"
+                className="text-[10px] font-semibold tracking-wider uppercase bg-accent text-white border border-transparent px-5 py-2.5 rounded-full hover:bg-accent-hover transition-all duration-300 shadow-[0_4px_12px_rgba(195,13,15,0.2)] hover:shadow-none"
               >
                 Explore Committees
               </Link>
@@ -131,7 +129,7 @@ export const Navbar: React.FC = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-1.5 text-neutral-400 hover:text-white focus:outline-none cursor-pointer rounded-full hover:bg-white/5 transition-colors"
+              className="lg:hidden p-1.5 text-foreground/60 hover:text-foreground focus:outline-none cursor-pointer rounded-full hover:bg-foreground/5 transition-colors"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

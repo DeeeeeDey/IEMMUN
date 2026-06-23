@@ -24,12 +24,15 @@ export const ComingSoon: React.FC<ComingSoonProps> = ({ title, subtitle, descrip
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-[70vh] px-6 text-center bg-black py-20 relative overflow-hidden">
-      {/* Decorative subtle red background light */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
+    <div className="flex flex-col items-center justify-center min-h-[70vh] px-6 text-center relative overflow-hidden py-20">
+      
+      {/* Floating Glass Pill Container */}
+      <div className="max-w-xl flex flex-col items-center gap-6 relative z-10 bg-white/[0.015] backdrop-blur-[40px] border border-white/[0.05] p-12 md:p-16 rounded-[3rem] shadow-2xl">
+        
+        {/* Subtle top edge glare */}
+        <div className="absolute inset-x-12 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
 
-      <div className="max-w-xl flex flex-col items-center gap-6 relative z-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neutral-800 bg-neutral-950 text-2xs uppercase tracking-wider text-accent font-sans">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/[0.05] bg-white/[0.03] text-2xs uppercase tracking-wider text-accent font-sans shadow-inner">
           <Sparkles className="w-3.5 h-3.5" />
           <span>Announcing Shortly</span>
         </div>
@@ -43,7 +46,7 @@ export const ComingSoon: React.FC<ComingSoonProps> = ({ title, subtitle, descrip
         </p>
 
         {submitted ? (
-          <div className="p-4 bg-neutral-900 border border-neutral-800 rounded-lg text-sm text-neutral-300 font-sans mt-4 w-full">
+          <div className="p-4 bg-white/[0.03] border border-white/[0.05] rounded-xl text-sm text-neutral-300 font-sans mt-4 w-full shadow-inner">
             Thank you. We will notify you as soon as updates are published.
           </div>
         ) : (
@@ -54,9 +57,9 @@ export const ComingSoon: React.FC<ComingSoonProps> = ({ title, subtitle, descrip
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="flex-1 px-4 py-3 bg-neutral-950 border border-neutral-800 text-sm text-white focus:outline-none focus:border-accent font-sans transition-colors placeholder:text-neutral-500"
+              className="flex-1 px-5 py-3.5 bg-black/40 border border-white/[0.08] rounded-full text-sm text-white focus:outline-none focus:border-accent/50 focus:bg-black/60 font-sans transition-all placeholder:text-neutral-500 shadow-inner"
             />
-            <Button type="submit" variant="primary" className="gap-2">
+            <Button type="submit" variant="primary" className="gap-2 rounded-full px-6">
               Notify Me
               <ArrowRight className="w-4 h-4" />
             </Button>

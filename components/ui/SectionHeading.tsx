@@ -22,11 +22,11 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
           {tag}
         </span>
       )}
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif tracking-tight text-white font-medium leading-tight">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-sans font-bold tracking-tight text-white leading-tight">
         {title}
       </h2>
       {description && (
-        <p className="max-w-2xl text-sm md:text-base text-neutral-400 leading-relaxed font-sans">
+        <p className="max-w-2xl text-sm md:text-base text-white/50 leading-relaxed font-sans">
           {description}
         </p>
       )}

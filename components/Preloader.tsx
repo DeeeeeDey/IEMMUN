@@ -38,7 +38,7 @@ export const Preloader: React.FC = () => {
             opacity: 0,
             transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
           }}
-          className="fixed inset-0 z-[9999] bg-black flex items-center justify-center pointer-events-auto"
+          className="fixed inset-0 z-[9999] bg-black pointer-events-auto"
         >
           <video
             src="/preloader.mp4"
@@ -48,6 +48,13 @@ export const Preloader: React.FC = () => {
             className="w-full h-full object-cover"
             onEnded={handleVideoEnd}
           />
+
+          <button
+            onClick={() => setIsLoading(false)}
+            className="absolute bottom-8 right-8 z-10 px-6 py-2 rounded-full border border-white/20 bg-black/40 backdrop-blur-xl text-xs font-semibold tracking-[0.2em] text-white/70 hover:text-white hover:bg-black/60 transition-all uppercase cursor-pointer"
+          >
+            Skip Intro
+          </button>
         </motion.div>
       )}
     </AnimatePresence>

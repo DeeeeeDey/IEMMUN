@@ -46,8 +46,8 @@ export default async function CommitteeDetailPage({ params }: PageProps) {
 
             <div className="flex items-center gap-3">
               <Badge type={committee.difficulty} />
-              <span className="text-2xs font-bold tracking-widest text-neutral-400 uppercase font-sans bg-neutral-900/60 px-2 py-0.5 border border-neutral-800">
-                {committee.shortName}
+              <span className="text-[10px] font-bold tracking-[0.2em] text-white/50 uppercase font-sans bg-white/[0.03] px-3 py-1 rounded-full border border-white/[0.08] backdrop-blur-md">
+                {committee.difficulty} Level
               </span>
             </div>
             
@@ -57,7 +57,8 @@ export default async function CommitteeDetailPage({ params }: PageProps) {
           </div>
 
           {/* Large Logo Emblem Container */}
-          <div className="relative w-28 h-28 md:w-32 md:h-32 flex-shrink-0 bg-neutral-950/40 p-4 border border-white/[0.06] rounded-2xl backdrop-blur-md shadow-2xl flex items-center justify-center">
+          <div className="relative w-28 h-28 md:w-32 md:h-32 flex-shrink-0 bg-white/[0.015] p-4 border border-white/[0.08] rounded-[2rem] backdrop-blur-[40px] shadow-2xl flex items-center justify-center overflow-hidden">
+            <div className="absolute inset-x-4 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
             <div className="relative w-full h-full">
               <Image
                 src={committee.image}
@@ -108,6 +109,16 @@ export default async function CommitteeDetailPage({ params }: PageProps) {
               </p>
               
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                  <a 
+                    href={committee.backgroundGuideUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="p-4 border border-white/[0.08] bg-white/[0.015] hover:bg-white/[0.03] hover:border-white/[0.15] backdrop-blur-xl rounded-[1.5rem] transition-all flex items-center gap-3 text-xs font-bold tracking-widest uppercase text-white/70 shadow-lg relative overflow-hidden group"
+                  >
+                    <div className="absolute inset-x-6 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <FileText className="w-4 h-4 text-accent" />
+                    Background Guide
+                  </a>
                 {committee.portfolioMatrix.map((portfolio, idx) => (
                   <div
                     key={idx}
@@ -126,11 +137,12 @@ export default async function CommitteeDetailPage({ params }: PageProps) {
           <div className="lg:col-span-4 lg:sticky lg:top-28 flex flex-col gap-8">
             
             {/* Executive Board */}
-            <div className="p-6 border border-neutral-900 bg-neutral-950/40 rounded-lg">
-              <h3 className="text-sm font-semibold tracking-wider uppercase text-white font-sans border-b border-neutral-900 pb-3 flex items-center gap-2">
-                <Users className="w-4 h-4 text-accent" />
+            <div className="p-8 border border-white/[0.08] bg-white/[0.015] backdrop-blur-[40px] rounded-[2rem] shadow-xl relative overflow-hidden transition-all duration-500 hover:border-white/[0.15]">
+              <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
+              <h2 className="text-xl md:text-2xl font-serif text-white font-medium mb-4 flex items-center gap-3">
+                <span className="w-2 h-2 rounded-full bg-accent shadow-[0_0_10px_rgba(195,13,15,0.5)]" />
                 Executive Board
-              </h3>
+              </h2>
               <div className="flex flex-col gap-4 mt-4 font-sans">
                 {committee.executiveBoard.map((member, idx) => (
                   <div key={idx} className="flex flex-col">
@@ -142,26 +154,27 @@ export default async function CommitteeDetailPage({ params }: PageProps) {
             </div>
 
             {/* Background Study Guide & Resources */}
-            <div className="p-6 border border-neutral-900 bg-neutral-950/40 rounded-lg">
-              <h3 className="text-sm font-semibold tracking-wider uppercase text-white font-sans border-b border-neutral-900 pb-3 flex items-center gap-2">
-                <BookOpen className="w-4 h-4 text-accent" />
+            <div className="p-8 border border-white/[0.08] bg-white/[0.015] backdrop-blur-[40px] rounded-[2rem] shadow-xl relative overflow-hidden transition-all duration-500 hover:border-white/[0.15]">
+              <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
+              <h2 className="text-xl md:text-2xl font-serif text-white font-medium mb-6 flex items-center gap-3">
+                <span className="w-2 h-2 rounded-full bg-neutral-500 shadow-[0_0_10px_rgba(255,255,255,0.2)]" />
                 Dossier & Study Guides
-              </h3>
+              </h2>
               
               <div className="flex flex-col gap-4 mt-6">
                 {/* Background Guide CTA */}
-                <div className="flex flex-col gap-3 p-4 bg-black border border-neutral-900 rounded font-sans">
+                <div className="flex flex-col gap-3 p-5 bg-white/[0.03] border border-white/[0.05] rounded-2xl shadow-inner font-sans">
                   <div className="flex items-start gap-3">
                     <FileText className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                     <div className="flex flex-col gap-0.5">
                       <span className="text-xs font-semibold text-white">Background Study Guide</span>
-                      <span className="text-[10px] text-neutral-500">PDF Document</span>
+                      <span className="text-[10px] text-white/50">PDF Document</span>
                     </div>
                   </div>
-                  <Button variant="outline" size="sm" className="w-full gap-2 border-neutral-800 text-neutral-400 hover:text-white mt-2">
+                  <a href={committee.backgroundGuideUrl} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center font-sans font-bold uppercase tracking-widest transition-all duration-300 focus:outline-none focus:ring-1 focus:ring-accent cursor-pointer rounded-full bg-white/[0.03] text-white border border-white/[0.1] hover:bg-white/[0.1] hover:border-white/[0.2] active:scale-[0.98] backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] px-4 py-2 text-[10px] w-full gap-2 mt-2">
                     <Download className="w-3.5 h-3.5" />
-                    Download PDF (Placeholder)
-                  </Button>
+                    Download PDF
+                  </a>
                 </div>
 
                 {/* Additional resources link */}

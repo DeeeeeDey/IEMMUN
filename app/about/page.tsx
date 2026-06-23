@@ -54,10 +54,13 @@ export default function AboutPage() {
       </section>
 
       {/* Grid: Image and Narrative (Mission) */}
-      <section className="max-w-7xl mx-auto px-6 mb-20 md:mb-28 border-t border-neutral-900 pt-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          <div className="lg:col-span-6 flex flex-col gap-6">
-            <div className="p-3 bg-neutral-900 border border-neutral-850 text-accent w-fit rounded">
+      <section className="max-w-7xl mx-auto px-6 mb-20 md:mb-28 pt-16 relative">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start relative z-10">
+          <div className="lg:col-span-6 flex flex-col gap-6 bg-white/[0.015] backdrop-blur-[40px] border border-white/[0.08] p-8 md:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden">
+            {/* Top edge glare */}
+            <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
+
+            <div className="p-3 bg-white/[0.03] border border-white/[0.05] text-accent w-fit rounded-xl shadow-inner">
               <Target className="w-5 h-5" />
             </div>
             <h2 className="text-2xl md:text-3xl font-serif text-white font-medium">
@@ -71,23 +74,23 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="lg:col-span-6 relative w-full aspect-[16/9] border border-neutral-900 bg-neutral-950/40 p-1">
-            <div className="relative w-full h-full overflow-hidden">
+          <div className="lg:col-span-6 relative w-full aspect-[4/3] lg:aspect-[3/4] border border-white/[0.08] bg-white/[0.015] backdrop-blur-[40px] p-2 rounded-[2.5rem] shadow-2xl">
+            <div className="relative w-full h-full overflow-hidden rounded-[2rem]">
               <Image
                 src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200"
                 alt="Diplomacy Session"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover opacity-75"
+                className="object-cover opacity-60 mix-blend-screen saturate-0"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Core Objectives & Conference Values */}
-      <section className="max-w-7xl mx-auto px-6 mb-20 md:mb-28 border-t border-neutral-900 pt-16">
+      <section className="max-w-7xl mx-auto px-6 mb-20 md:mb-28 pt-16">
         <div className="text-center mb-12">
           <SectionHeading
             tag="Key Competencies"
@@ -99,28 +102,37 @@ export default function AboutPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Pillar 1 */}
-          <div className="p-6 border border-neutral-900 bg-neutral-950/40 flex flex-col gap-3 font-sans">
-            <Award className="w-5 h-5 text-accent" />
+          <div className="p-8 border border-white/[0.08] bg-white/[0.015] backdrop-blur-[40px] rounded-[2rem] flex flex-col gap-4 font-sans relative overflow-hidden group shadow-xl">
+            <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="p-3 bg-white/[0.03] border border-white/[0.05] rounded-xl w-fit group-hover:border-accent/50 group-hover:bg-accent/10 transition-colors duration-300">
+              <Award className="w-5 h-5 text-accent" />
+            </div>
             <h4 className="text-sm font-semibold tracking-wider uppercase text-white mt-2">Academic Excellence</h4>
-            <p className="text-xs text-neutral-550 leading-relaxed">
+            <p className="text-xs text-neutral-400 leading-relaxed">
               Maintaining the highest standards in diplomatic education through rigorous research, comprehensive preparation, and expert guidance.
             </p>
           </div>
 
           {/* Pillar 2 */}
-          <div className="p-6 border border-neutral-900 bg-neutral-950/40 flex flex-col gap-3 font-sans">
-            <Compass className="w-5 h-5 text-accent" />
+          <div className="p-8 border border-white/[0.08] bg-white/[0.015] backdrop-blur-[40px] rounded-[2rem] flex flex-col gap-4 font-sans relative overflow-hidden group shadow-xl">
+            <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="p-3 bg-white/[0.03] border border-white/[0.05] rounded-xl w-fit group-hover:border-accent/50 group-hover:bg-accent/10 transition-colors duration-300">
+              <Compass className="w-5 h-5 text-accent" />
+            </div>
             <h4 className="text-sm font-semibold tracking-wider uppercase text-white mt-2">Global Perspective</h4>
-            <p className="text-xs text-neutral-550 leading-relaxed">
+            <p className="text-xs text-neutral-400 leading-relaxed">
               Fostering international understanding through diverse representation and comprehensive exploration of global challenges and solutions.
             </p>
           </div>
 
           {/* Pillar 3 */}
-          <div className="p-6 border border-neutral-900 bg-neutral-950/40 flex flex-col gap-3 font-sans">
-            <Shield className="w-5 h-5 text-accent" />
+          <div className="p-8 border border-white/[0.08] bg-white/[0.015] backdrop-blur-[40px] rounded-[2rem] flex flex-col gap-4 font-sans relative overflow-hidden group shadow-xl">
+            <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="p-3 bg-white/[0.03] border border-white/[0.05] rounded-xl w-fit group-hover:border-accent/50 group-hover:bg-accent/10 transition-colors duration-300">
+              <Shield className="w-5 h-5 text-accent" />
+            </div>
             <h4 className="text-sm font-semibold tracking-wider uppercase text-white mt-2">Leadership Development</h4>
-            <p className="text-xs text-neutral-550 leading-relaxed">
+            <p className="text-xs text-neutral-400 leading-relaxed">
               Cultivating the next generation of diplomatic leaders through practical experience in negotiation, consensus-building, and strategic thinking.
             </p>
           </div>
@@ -128,7 +140,7 @@ export default function AboutPage() {
       </section>
 
       {/* Vertical Timeline & Milestones */}
-      <section className="max-w-7xl mx-auto px-6 py-16 border-t border-neutral-900 mb-20">
+      <section className="max-w-7xl mx-auto px-6 py-16 mb-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <div className="lg:col-span-5">
             <SectionHeading
